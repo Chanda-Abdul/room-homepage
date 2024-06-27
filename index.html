@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/assets/favicon-32x32.png">
+  <link rel="stylesheet"
+        href="/styles/styles.css">
+  <title>Frontend Mentor | Room homepage</title>
+</head>
+
+<body>
+
+  <nav>
+
+    <header>
+
+      <button class="menu-toggle"
+              id="menu-open"
+              onclick="toggleMobileMenu()">
+
+        <img src="/assets/icons/icon-hamburger.svg"
+             alt="menu-open">
+      </button>
+
+      <img src="/assets/logo.svg"
+           alt="brand-logo">
+    </header>
+
+    <menu class="expand">
+
+      <button class="menu-toggle"
+              id="menu-close"
+              onclick="toggleMobileMenu()">
+
+        <img src="/assets/icons/icon-close.svg"
+             alt="menu-close"> </button>
+
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </menu>
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero__carousel">
+
+      <ul>
+
+        <li class="hero__carousel--slide">
+
+          <picture>
+            <source media="(max-width: 768px)"
+                    srcset="/assets/images/mobile-image-hero-1.jpg" />
+            <source media="(min-width: 769px)"
+                    srcset="/assets/images/desktop-image-hero-1.jpg" />
+            <img src="/assets/images/mobile-image-hero-1.jpg"
+                 alt="chair and table" />
+          </picture>
+
+          <div class="hero__content">
+            <h1>Discover innovative ways to decorate</h1>
+            <p>We provide unmatched quality, comfort, and style for property owners across the country.
+              Our experts combine form and function in bringing your vision to life. Create a room in your
+              own style with our collection and make your property a reflection of you and what you love.
+            </p>
+            <a href="#"
+               class="btn-primary">Shop now <img src="/assets/icons/icon-arrow.svg"
+                   alt="arrow right"></a>
+          </div>
+        </li>
+
+        <li class="hero__carousel--slide">
+
+          <picture>
+            <source media="(max-width: 768px)"
+                    srcset="/assets/images/mobile-image-hero-2.jpg" />
+            <source media="(min-width: 769px)"
+                    srcset="/assets/images/desktop-image-hero-2.jpg" />
+            <img src="/assets/images/mobile-image-hero-2.jpg"
+                 alt="several chairs" />
+          </picture>
+
+          <div class="hero__content">
+
+            <h1>We are available all across the globe</h1>
+            <p> With stores all over the world, it's easy for you to find furniture for your home or place of business.
+              Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
+              store locator. Any questions? Don't hesitate to contact us today.
+            </p>
+
+            <a href="#"
+               class="btn-primary">Shop now <img src="/assets/icons/icon-arrow.svg"
+                   alt="arrow right"></a>
+          </div>
+        </li>
+
+        <li class="hero__carousel--slide">
+
+          <picture>
+            <source media="(max-width: 768px)"
+                    srcset="/assets/images/mobile-image-hero-3.jpg" />
+            <source media="(min-width: 769px)"
+                    srcset="/assets/images/desktop-image-hero-3.jpg" />
+            <img src="/assets/images/mobile-image-hero-3.jpg"
+                 alt="have a seat" />
+          </picture>
+
+          <div class="hero__content">
+            <h1>Manufactured with the best materials</h1>
+            <p>Our modern furniture store provide a high level of quality. Our company has invested in advanced
+              technology
+              to ensure that every product is made as perfect and as consistent as possible. With three decades of
+              experience in this industry, we understand what customers want for their home and office.
+            </p>
+
+            <a href="#"
+               class="btn-primary">Shop now <img src="/assets/icons/icon-arrow.svg"
+                   alt="arrow right"></a>
+          </div>
+        </li>
+
+        <div class="hero__carousel--slider">
+
+          <button class="arr-left"
+                  onclick="rotateImage('left')">
+            <img src="/assets/icons/icon-angle-left.svg"
+                 alt="arrow-left">
+          </button>
+
+          <button class="arr-right"
+                  onclick="rotateImage('right')">
+            <img src="/assets/icons/icon-angle-right.svg"
+                 alt="arrow-right">
+          </button>
+        </div>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about">
+    <img src="/assets/images/image-about-dark.jpg"
+         alt="modern furniture dark">
+
+    <div class="about__content">
+      <h2>About our furniture</h2>
+      <p>Our multifunctional collection blends design and function to suit your individual taste.
+        Make each room unique, or pick a cohesive theme that best express your interests and what
+        inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+        or anything in between. Product specialists are available to help you create your dream space.
+      </p>
+    </div>
+
+    <img src="/assets/images/image-about-light.jpg"
+         alt="modern furniture light">
+
+  </section>
+
+  <footer class="attribution">
+    Challenge by <a href='https://www.frontendmentor.io?ref=challenge'
+       target='_blank'>Frontend Mentor</a>.
+    Coded by <a href='ChandaAbdul.dev'
+       target='_blank'>Chanda Abdul</a>.
+  </footer>
+  <script src="/scripts/index.js"
+          defer></script>
+</body>
+
+</html>

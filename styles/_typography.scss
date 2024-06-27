@@ -1,0 +1,45 @@
+@font-face {
+	font-family: 'League Spartan';
+	src: url('/assets/fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+	font-weight: 500 600 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+:root {
+	--font-family-default: "League Spartan", sans-serif;
+
+	--font-weight-default: 500;
+	--font-weight-content: 600;
+	--font-weight-display: 700;
+
+	--font-size-default: 1.2rem;
+	--font-size-content: 1.6rem;
+	--font-size-link: 1.6rem;
+	--font-size-btn: 1.5rem;
+	--font-size-h1: 4rem;
+	--font-size-h1-desktop: 4.8rem;
+	--font-size-h2: 1.4rem;
+	--font-size-attribution: 1rem;
+
+	--text-case-display: uppercase;
+
+	--line-height-default: 2.2rem;
+
+	--letter-spacing-default: -0.333px;
+	--letter-spacing-h1: -1.667px;
+	--letter-spacing-h1-desktop: -2px;
+	--letter-spacing-h2: 5.833px;
+	--letter-spacing-btn: 1.25rem;
+
+	--spacing-mobile-vertical-nav: 4.8rem;
+	--spacing-mobile-horizontal-nav: 2.7rem;
+	--spacing-mobile-vertical: 5.4rem;
+	--spacing-mobile-horizontal: 3.2rem;
+	--spacing-desktop-vertical: 10.2rem;
+	--spacing-desktop-horizontal: 10rem;
+	--spacing-xs: 1.5rem;
+	--spacing-s: 2.4rem;
+	--spacing-l: 4rem;
+}
