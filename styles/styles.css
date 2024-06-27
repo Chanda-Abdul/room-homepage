@@ -330,7 +330,7 @@ footer.attribution a {
 }
 @media screen and (min-width: 48em) {
   /* tablet/desktop media query > 768px */
-  .menu-toggle {
+  .menu-toggle, .mobile {
     display: none;
   }
   nav {

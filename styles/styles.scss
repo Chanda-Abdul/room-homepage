@@ -255,7 +255,7 @@ footer {
 
 @media screen and (min-width: 48em) {
     /* tablet/desktop media query > 768px */
-    .menu-toggle {
+    .menu-toggle, .mobile {
         display: none;
     }
 
@@ -264,7 +264,6 @@ footer {
         width: 36.2rem;
 
         menu {
-
             width: fit-content;
 
             li {
