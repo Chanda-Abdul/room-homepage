@@ -28,7 +28,7 @@
         <img src="/assets/icons/icon-hamburger.svg"
              alt="menu-open">
       </button>
-      <a href="/"> 
+      <a href="/">
         <img src="/assets/logo.svg"
              alt="brand-logo"></a>
 
@@ -44,7 +44,9 @@
              alt="menu-close"> </button>
 
       <ul>
-        <li class="mobile"><a href="#">Home</a></li>
+        <li class="mobile">
+          <a href="#">Home</a>
+        </li>
         <li><a href="#">Shop</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
@@ -54,98 +56,95 @@
 
   <section class="hero">
 
-    <div class="hero__carousel">
 
-      <ul>
+
+      <ul class="hero__carousel">
 
         <li class="hero__carousel--slide">
+          <article>
+            <picture>
+              <source media="(max-width: 768px)"
+                      srcset="/assets/images/mobile-image-hero-1.jpg" />
+              <source media="(min-width: 769px)"
+                      srcset="/assets/images/desktop-image-hero-1.jpg" />
+              <img src="/assets/images/mobile-image-hero-1.jpg"
+                   alt="chair and table" />
+            </picture>
 
-          <picture>
-            <source media="(max-width: 768px)"
-                    srcset="/assets/images/mobile-image-hero-1.jpg" />
-            <source media="(min-width: 769px)"
-                    srcset="/assets/images/desktop-image-hero-1.jpg" />
-            <img src="/assets/images/mobile-image-hero-1.jpg"
-                 alt="chair and table" />
-          </picture>
-
-          <div class="hero__content">
-            <h1>Discover innovative ways to decorate</h1>
-            <p>We provide unmatched quality, comfort, and style for property owners across the country.
-              Our experts combine form and function in bringing your vision to life. Create a room in your
-              own style with our collection and make your property a reflection of you and what you love.
-            </p>
-            <a href="#"
-               class="btn-primary">Shop now <img src="/assets/icons/icon-arrow.svg"
-                   alt="arrow right"></a>
-          </div>
+            <div class="hero__content">
+              <h1>Discover innovative ways to decorate</h1>
+              <p>We provide unmatched quality, comfort, and style for property owners across the country.
+                Our experts combine form and function in bringing your vision to life. Create a room in your
+                own style with our collection and make your property a reflection of you and what you love.
+              </p> <a href="#"
+                 class="btn-primary">Shop now </a>
+            </div>
+          </article>
         </li>
 
         <li class="hero__carousel--slide">
-
-          <picture>
-            <source media="(max-width: 768px)"
-                    srcset="/assets/images/mobile-image-hero-2.jpg" />
-            <source media="(min-width: 769px)"
-                    srcset="/assets/images/desktop-image-hero-2.jpg" />
-            <img src="/assets/images/mobile-image-hero-2.jpg"
-                 alt="several chairs" />
-          </picture>
-
-          <div class="hero__content">
-
-            <h1>We are available all across the globe</h1>
-            <p> With stores all over the world, it's easy for you to find furniture for your home or place of business.
-              Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
-              store locator. Any questions? Don't hesitate to contact us today.
-            </p>
-
-            <a href="#"
-               class="btn-primary">Shop now <img src="/assets/icons/icon-arrow.svg"
-                   alt="arrow right"></a>
-          </div>
+          <article>
+            <picture>
+              <source media="(max-width: 768px)"
+                      srcset="/assets/images/mobile-image-hero-2.jpg" />
+              <source media="(min-width: 769px)"
+                      srcset="/assets/images/desktop-image-hero-2.jpg" />
+              <img src="/assets/images/mobile-image-hero-2.jpg"
+                   alt="several chairs" />
+            </picture>
+            <div class="hero__content">
+              <h1>We are available all across the globe</h1>
+              <p> With stores all over the world, it's easy for you to find furniture for your home or place of
+                business.
+                Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
+                store locator. Any questions? Don't hesitate to contact us today.
+              </p>
+              <a href="#"
+                 class="btn-primary">Shop now </a>
+            </div>
+          </article>
         </li>
 
         <li class="hero__carousel--slide">
-
-          <picture>
-            <source media="(max-width: 768px)"
-                    srcset="/assets/images/mobile-image-hero-3.jpg" />
-            <source media="(min-width: 769px)"
-                    srcset="/assets/images/desktop-image-hero-3.jpg" />
-            <img src="/assets/images/mobile-image-hero-3.jpg"
-                 alt="have a seat" />
-          </picture>
-
-          <div class="hero__content">
-            <h1>Manufactured with the best materials</h1>
-            <p>Our modern furniture store provide a high level of quality. Our company has invested in advanced
-              technology
-              to ensure that every product is made as perfect and as consistent as possible. With three decades of
-              experience in this industry, we understand what customers want for their home and office.
-            </p>
-
-            <a href="#"
-               class="btn-primary">Shop now <img src="/assets/icons/icon-arrow.svg"
-                   alt="arrow right"></a>
-          </div>
+          <article>
+            <picture>
+              <source media="(max-width: 768px)"
+                      srcset="/assets/images/mobile-image-hero-3.jpg" />
+              <source media="(min-width: 769px)"
+                      srcset="/assets/images/desktop-image-hero-3.jpg" />
+              <img src="/assets/images/mobile-image-hero-3.jpg"
+                   alt="have a seat" />
+            </picture>
+            <div class="hero__content">
+              <h1>Manufactured with the best materials</h1>
+              <p>Our modern furniture store provide a high level of quality. Our company has invested in advanced
+                technology
+                to ensure that every product is made as perfect and as consistent as possible. With three decades of
+                experience in this industry, we understand what customers want for their home and office.
+              </p>
+              <a href="#"
+                 class="btn-primary">Shop now </a>
+            </div>
+            <article>
         </li>
-
-        <div class="hero__carousel--slider">
-
-          <button class="arr-left"
-                  onclick="rotateImage('left')">
-            <img src="/assets/icons/icon-angle-left.svg"
-                 alt="arrow-left">
-          </button>
-
-          <button class="arr-right"
-                  onclick="rotateImage('right')">
-            <img src="/assets/icons/icon-angle-right.svg"
-                 alt="arrow-right">
-          </button>
-        </div>
       </ul>
+
+
+
+      <div class="hero__carousel--slider">
+
+        <button class="arr-left"
+                onclick="rotateImage('left')">
+          <img src="/assets/icons/icon-angle-left.svg"
+               alt="arrow-left">
+        </button>
+
+        <button class="arr-right"
+                onclick="rotateImage('right')">
+          <img src="/assets/icons/icon-angle-right.svg"
+               alt="arrow-right">
+        </button>
+ 
     </div>
   </section>
 

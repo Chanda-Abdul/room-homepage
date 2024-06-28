@@ -2,53 +2,52 @@
 @import './typography';
 @import './variables';
 
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-content: $align;
+    align-items: $align;
+}
+
 body {
     font-family: var(--font-family-default);
     font-size: var(--font-size-default);
     position: relative;
+
 }
 
 nav {
-    display: flex;
-    gap: 6.4rem;
-    width: 100%;
-    justify-content: flex-start;
-    align-content: center;
     position: absolute;
     z-index: 2;
+    @include flex(row, flex-start, center);
+    gap: 6.4rem;
+    width: 100%;
+
 
     header {
-        display: flex;
-        justify-content: space-between;
-        align-content: center;
+        @include flex(row, space-between, center);
         width: 19.5rem;
         padding: var(--spacing-mobile-vertical-nav) var(--spacing-mobile-horizontal-nav);
-
     }
 
 
-    button {
+    button img {
         width: 1.6rem;
         height: 1.6rem;
     }
 
     menu {
-        transition: all .5s ease-in-out;
+        @include flex(row, space-between, center);
         padding: var(--spacing-mobile-vertical-nav) var(--spacing-mobile-horizontal-nav);
-        width: 100%;
-        gap: 3.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: row;
+        width: 100vw;
+        color: var(--midnight);
+        transition: all .5s ease-in-out;
     }
 
     ul {
-        gap: 3.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: row;
+        @include flex(row, space-evenly, center);
+        gap: var(--spacing-mobile-horizontal);
 
         li {
             transition: all .2s ease-out;
@@ -73,27 +72,32 @@ nav {
 .hero {
     position: relative;
     top: 0;
-    min-height: 70rem;
+    width: 100vw;
+    @include flex(column, space-evenly, center);
 
     &__carousel {
         position: relative;
 
         &--slide {
+            @include flex(column, center, center);
 
-            //   to-do => animation
+            article div {
+                height: 40rem;
+
+                @include flex(column, space-between, flex-start);
+            }
+
+
             picture,
             picture img {
-                flex-shrink: 0;
+                //   to-do => animation
                 height: 36rem;
-                width: 100%;
-                object-fit: cover;
+                width: 100vw;
             }
         }
 
         &--slider {
             position: absolute;
-            top: calc(36rem - 5.6rem);
-            right: 0;
             height: 5.6rem;
             width: 11.2rem;
             display: inline-flex;
@@ -102,26 +106,28 @@ nav {
             .arr-right {
                 height: 100%;
                 width: 50%;
-                flex-shrink: 0;
                 background: var(--midnight);
                 transition: all .25s ease;
 
                 &:hover {
-
                     background: var(--haze);
                 }
             }
         }
-
     }
 }
 
 .about {
-    display: flex;
-    flex-direction: column;
+    @include flex(column, center, center);
+
+    img {
+        height: 36rem;
+        width: 100vw;
+    }
 }
 
 [class*="__content"] {
+
     padding: var(--spacing-mobile-vertical) var(--spacing-mobile-horizontal);
 }
 
@@ -155,7 +161,7 @@ p {
 }
 
 .btn-primary {
-    display: flex;
+    @include flex(row, center, center);
     gap: var(--spacing-mobile-horizontal);
     margin-top: var(--spacing-l);
     color: var(--midnight);
@@ -165,24 +171,37 @@ p {
     letter-spacing: var(--letter-spacing-btn);
     text-transform: var(--text-case-display);
     transition: all .25s ease;
+    position: relative;
+
+    &::after {
+        transition: all .25s ease;
+        content: '';
+        mask: url('/assets/icons/icon-arrow.svg');
+        position: absolute;
+        width: 4rem;
+        height: 1.2rem;
+        mask-size: cover;
+        left: 19.2rem;
+        background: var(--midnight);
+    }
 
     &:hover {
         color: var(--fog);
-        //to-do => transition svg color on hover
-        fill: var(--fog);
+
+        &::after {
+            background: var(--fog);
+        }
+
     }
 }
 
 footer {
+    @include flex(row, center, center);
     position: absolute;
     z-index: 2;
     bottom: 1rem;
     width: 100%;
     height: auto;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
 
     &.attribution {
         font-size: var(--font-size-attribution);
@@ -190,7 +209,7 @@ footer {
     }
 
     &.attribution a {
-        padding: 0 0 0 .25rem ;
+        padding: 0 0 0 .25rem;
         color: var(--blue-berry);
     }
 }
@@ -209,6 +228,7 @@ footer {
             background-color: var(--powder);
             position: fixed;
             z-index: 3;
+            top: 0;
 
             &::after {
                 transition: all .25s ease;
@@ -245,17 +265,21 @@ footer {
         }
     }
 
-    picture,
-    picture img {
-        width: 84rem;
-        height: 53.4rem;
-    }
+    .hero__carousel {
+        &--slider {
+            top: calc(36rem - 5.6rem);
+            right: 0;
 
+
+        }
+    }
 }
 
 @media screen and (min-width: 48em) {
+
     /* tablet/desktop media query > 768px */
-    .menu-toggle, .mobile {
+    .menu-toggle,
+    .mobile {
         display: none;
     }
 
@@ -292,24 +316,22 @@ footer {
         }
     }
 
-    .about {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        img {
-            width: calc((100vw - 58rem)/2);
-            height: 26.6rem;
-            object-fit: cover;
+    .hero__carousel {
+        &--slide picture img {
+            @include flex(column, space-evenly, center);
+            height: 100%;
+            width: 100vw;
         }
 
-        &__content {
-            padding: 6.4rem 4.8rem;
-            width: 58rem;
-            height: 26.6rem;
-            flex-shrink: 0;
+        article div {
+            width: 40rem;
         }
 
+        &--slider {
+            bottom: calc(40rem);
+            right: 0;
+
+        }
     }
 }
 
@@ -317,35 +339,64 @@ footer {
 
     /* desktop media query > 1200px */
     .hero {
-        display: flex;
-        flex-direction: row;
+        @include flex(row, space-between, center);
+        width: 100vw;
 
         &__carousel {
-            width: 84rem;
+            @include flex(row, space-between, center);
             height: 53.4rem;
 
-            &--slide,
-            &--slide img,
-            picture {
-                max-width: 84rem;
-                height: 53.4rem;
-                flex-shrink: 0;
+            ul {
+                @include flex(row, space-between, center);
+                width: 100%;
+            }
+
+            &--slide {
+                @include flex(row, space-between, center);
+                width: 100vw;
+
+                article {
+                    @include flex(row, flex-start, flex-start);
+                    height: 100%;
+                    width: 100%;
+                }
+
+                picture,
+                picture img {
+                    max-width: 84rem;
+                    height: 100%;
+                }
             }
 
             &--slider {
-                right: -16rem;
+                left: calc(84rem - 16rem);
+                top: calc(53.4rem - 8rem);
                 width: 16rem;
                 height: 8rem;
-                flex-shrink: 0;
             }
         }
 
-        &__content {
+        article div {
             width: 60rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            height: 53.4rem;
+            @include flex(column, flex-start, flex-start);
             padding: var(--spacing-desktop-vertical) var(--spacing-desktop-horizontal);
+        }
+    }
+
+    .about {
+        @include flex(row, space-between, center);
+        min-height: 26.6rem;
+
+        img {
+            max-width: 33vw;
+            min-height: 26.6rem;
+        }
+
+        &__content {
+            padding: 6.4rem 4.8rem;
+            width: 58rem;
+            height: 26.6rem;
         }
     }
 

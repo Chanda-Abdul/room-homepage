@@ -17,6 +17,7 @@ img,
 svg,
 picture {
   height: auto;
+  object-fit: cover;
 }
 
 picture img,
@@ -120,41 +121,47 @@ body {
 }
 
 nav {
-  display: flex;
-  gap: 6.4rem;
-  width: 100%;
-  justify-content: flex-start;
-  align-content: center;
   position: absolute;
   z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  gap: 6.4rem;
+  width: 100%;
 }
 nav header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-content: center;
+  align-items: center;
   width: 19.5rem;
   padding: var(--spacing-mobile-vertical-nav) var(--spacing-mobile-horizontal-nav);
 }
-nav button {
+nav button img {
   width: 1.6rem;
   height: 1.6rem;
 }
 nav menu {
-  transition: all 0.5s ease-in-out;
-  padding: var(--spacing-mobile-vertical-nav) var(--spacing-mobile-horizontal-nav);
-  width: 100%;
-  gap: 3.2rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding: var(--spacing-mobile-vertical-nav) var(--spacing-mobile-horizontal-nav);
+  width: 100vw;
+  color: var(--midnight);
+  transition: all 0.5s ease-in-out;
 }
 nav ul {
-  gap: 3.2rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  gap: var(--spacing-mobile-horizontal);
 }
 nav ul li {
   transition: all 0.2s ease-out;
@@ -174,22 +181,38 @@ nav ul li a {
 .hero {
   position: relative;
   top: 0;
-  min-height: 70rem;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
 }
 .hero__carousel {
   position: relative;
 }
+.hero__carousel--slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.hero__carousel--slide article div {
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: flex-start;
+}
 .hero__carousel--slide picture,
 .hero__carousel--slide picture img {
-  flex-shrink: 0;
   height: 36rem;
-  width: 100%;
-  object-fit: cover;
+  width: 100vw;
 }
 .hero__carousel--slider {
   position: absolute;
-  top: 30.4rem;
-  right: 0;
   height: 5.6rem;
   width: 11.2rem;
   display: inline-flex;
@@ -198,7 +221,6 @@ nav ul li a {
 .hero__carousel--slider .arr-right {
   height: 100%;
   width: 50%;
-  flex-shrink: 0;
   background: var(--midnight);
   transition: all 0.25s ease;
 }
@@ -210,6 +232,13 @@ nav ul li a {
 .about {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.about img {
+  height: 36rem;
+  width: 100vw;
 }
 
 [class*=__content] {
@@ -247,6 +276,10 @@ p {
 
 .btn-primary {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   gap: var(--spacing-mobile-horizontal);
   margin-top: var(--spacing-l);
   color: var(--midnight);
@@ -256,22 +289,37 @@ p {
   letter-spacing: var(--letter-spacing-btn);
   text-transform: var(--text-case-display);
   transition: all 0.25s ease;
+  position: relative;
+}
+.btn-primary::after {
+  transition: all 0.25s ease;
+  content: "";
+  mask: url("/assets/icons/icon-arrow.svg");
+  position: absolute;
+  width: 4rem;
+  height: 1.2rem;
+  mask-size: cover;
+  left: 19.2rem;
+  background: var(--midnight);
 }
 .btn-primary:hover {
   color: var(--fog);
-  fill: var(--fog);
+}
+.btn-primary:hover::after {
+  background: var(--fog);
 }
 
 footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
   position: absolute;
   z-index: 2;
   bottom: 1rem;
   width: 100%;
   height: auto;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  justify-content: center;
 }
 footer.attribution {
   font-size: var(--font-size-attribution);
@@ -292,6 +340,7 @@ footer.attribution a {
     background-color: var(--powder);
     position: fixed;
     z-index: 3;
+    top: 0;
   }
   nav menu::after {
     transition: all 0.25s ease;
@@ -322,15 +371,15 @@ footer.attribution a {
   nav menu li:hover::after {
     width: 2.5rem;
   }
-  picture,
-  picture img {
-    width: 84rem;
-    height: 53.4rem;
+  .hero__carousel--slider {
+    top: 30.4rem;
+    right: 0;
   }
 }
 @media screen and (min-width: 48em) {
   /* tablet/desktop media query > 768px */
-  .menu-toggle, .mobile {
+  .menu-toggle,
+  .mobile {
     display: none;
   }
   nav {
@@ -360,21 +409,21 @@ footer.attribution a {
   nav menu li a {
     color: var(--powder);
   }
-  .about {
+  .hero__carousel--slide picture img {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
     align-items: center;
+    height: 100%;
+    width: 100vw;
   }
-  .about img {
-    width: calc((100vw - 58rem) / 2);
-    height: 26.6rem;
-    object-fit: cover;
+  .hero__carousel article div {
+    width: 40rem;
   }
-  .about__content {
-    padding: 6.4rem 4.8rem;
-    width: 58rem;
-    height: 26.6rem;
-    flex-shrink: 0;
+  .hero__carousel--slider {
+    bottom: 40rem;
+    right: 0;
   }
 }
 @media screen and (min-width: 75em) {
@@ -382,29 +431,81 @@ footer.attribution a {
   .hero {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    width: 100vw;
   }
   .hero__carousel {
-    width: 84rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
     height: 53.4rem;
   }
-  .hero__carousel--slide, .hero__carousel--slide img,
-  .hero__carousel picture {
+  .hero__carousel ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .hero__carousel--slide {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    width: 100vw;
+  }
+  .hero__carousel--slide article {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  .hero__carousel--slide picture,
+  .hero__carousel--slide picture img {
     max-width: 84rem;
-    height: 53.4rem;
-    flex-shrink: 0;
+    height: 100%;
   }
   .hero__carousel--slider {
-    right: -16rem;
+    left: 68rem;
+    top: 45.4rem;
     width: 16rem;
     height: 8rem;
-    flex-shrink: 0;
   }
-  .hero__content {
+  .hero article div {
     width: 60rem;
+    height: 53.4rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
     padding: var(--spacing-desktop-vertical) var(--spacing-desktop-horizontal);
+  }
+  .about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    min-height: 26.6rem;
+  }
+  .about img {
+    max-width: 33vw;
+    min-height: 26.6rem;
+  }
+  .about__content {
+    padding: 6.4rem 4.8rem;
+    width: 58rem;
+    height: 26.6rem;
   }
   h1 {
     font-size: var(--font-size-h1-desktop);
